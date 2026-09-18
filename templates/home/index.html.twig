@@ -19,44 +19,22 @@
 	<div>
 		<h3>Les EPs</h3>
 		{% for album in epType %}
-			<div class="card" style="width: 18rem;">
-				<img src="{{asset(album.pouch)}}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">{{album.title}}</h5>
-					<p class="card-text">Date de sortie :
-						{{album.createdAt | date("d/m/Y")}}</p>
-					<p class="card-text">Some quick example text to build on the card title and make up tbulk of the card’s content.</p>
-					<a href="#" class="btn btn-primary">Lien du EP</a>
-				</div>
-			</div>
+			{% include 'components/album-card.html.twig' with {album:album} %}
 			{% endfor%}
 		</div>
 
 		<div>
 			<h3>Les Albums</h3>
 			{% for album in albumType %}
-				<div class="card" style="width: 18rem;">
-					<img src="{{asset(album.pouch)}}" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">{{album.title}}</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-						<a href="#" class="btn btn-primary">Lien de l'album</a>
-					</div>
-				</div>
+				{% include 'components/album-card.html.twig' with {album:album} %}
 				{% endfor%}
 			</div>
 
 			<div>
-				<h3>Les singles</h3>
+				<h3>Les singles
+				</h3>
 				{% for album in singleType %}
-					<div class="card" style="width: 18rem;">
-						<img src="{{asset(album.pouch)}}" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">{{album.title}}</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-							<a href="#" class="btn btn-primary">lien du single</a>
-						</div>
-					</div>
+					{% include 'components/album-card.html.twig' with {album:album} %}
 					{% endfor%}
 				</div>
 

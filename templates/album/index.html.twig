@@ -18,17 +18,31 @@
 	</style>
 
 	<div class="example-wrapper">
-		<h1>
-			{{ $album }}</h1>
+		<h1></h1>
+		<div class="card" style="width: 18rem;">
+			<img src="{{asset(album.pouch)}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{ album.title }}</h5>
+				<p class="card-text">nombre de morceaux :
+					{{album.tracks|length}}
+				</p>
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>/home/Mat/dev/symfony/harmonia/harmonia/src/Controller/AlbumController.php</code>
-			</li>
-			<li>Your template at
-				<code>/home/Mat/dev/symfony/harmonia/harmonia/templates/album/index.html.twig</code>
-			</li>
-		</ul>
+				<a href={{path("app_track_create", {'id':album.id} )}} " class=" btn btn-primary">Ajouter un morceau</a>
+			</div>
+		</div>
+
 	</div>
+
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">Les morceaux:
+			</h5>
+			{%for track in album.tracks%}
+				<p class="card-text">{{track.title}}</p>
+				<a href="{{path("app_favorite_create", {'track_id': track.id})}}" class=" btn btn-primary">Mettre en favori</a>
+
+			{% endfor %}
+		</div>
+	</div>
+
 {% endblock %}

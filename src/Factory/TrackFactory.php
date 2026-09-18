@@ -44,6 +44,7 @@ final class TrackFactory extends PersistentObjectFactory
             'numberOfListens' => self::faker()->randomNumber(),
             'numberTrack' => self::faker()->randomNumber(),
             'title' => self::faker()->text(25),
+            'album' => AlbumFactory::random(),
         ];
     }
 

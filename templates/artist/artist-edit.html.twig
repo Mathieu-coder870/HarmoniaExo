@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<div class="container">
+		{#        {{ form_start(formAddArticle) }}#}
+		{#        {{ form_end(formAddArticle) }}#}<h2>Modification de l'artiste:
+		</h2>
+		{% form_theme form 'bootstrap_5_horizontal_layout.html.twig' %}
+		{{ form_start(form) }}
+	{{ form_end(form) }}
+</div>
+{% endblock %}{% block title %}{% endblock %}

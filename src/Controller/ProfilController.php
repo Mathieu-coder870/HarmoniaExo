@@ -10,15 +10,12 @@ use Symfony\Component\Routing\Attribute\Route;
 final class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index($user, PlaylistRepository $playlistRepository ): Response
+    public function index(): Response
     {
-        $user =$this->getUser();
-       
-	
-        $playlistEntities = $playlistRepository->findAll();
+        
 
         return $this->render('profil/index.html.twig', [
-            'playlistEntities' => $playlistEntities,
+            // 'playlistEntities' => $playlistEntities,
         ]);
     }
 }
